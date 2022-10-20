@@ -1,11 +1,8 @@
 import numpy as np
-import time
-from datetime import datetime, timedelta
+import matplotlib.image
 
-n = 200
+n = 50
 grid = np.random.randint(2, size=[n,n])
-
-
 
 def count_live_neighbors(grid, pos):
     """ Check for 8 possible neighbors. """
@@ -70,35 +67,47 @@ def print_ascii(grid):
 
         if grid[iy,ix]:
             graph+=u"\u2588"u"\u2588"
+            #graph = "*"
         else:
             graph+="  "
 
         if ix == max_x:
             graph+="\n"
 
-    print(graph)
+    return graph
 
-test_grid = np.zeros([n,n])
-test_grid[0,0] = 1
-test_grid[0,-1] = 1
-test_grid[-1,0] = 1
-test_grid[-1,-1] = 1
-print_ascii(test_grid)
 
-time.sleep(3)
+# Print border of the canvas, to set up the terminal screen.
+
+# test_grid = np.zeros([n,n])
+# test_grid[0,0] = 1
+# test_grid[0,-1] = 1
+# test_grid[-1,0] = 1
+# test_grid[-1,-1] = 1
+# print_ascii(test_grid)
+
+
+# Run loop
 while True:
-
-    t = datetime.now()
+    
+    # Define new empty canvas
     new_grid = np.zeros(grid.shape)
+    
+    # Iterate trough all cells and determine their state
     for iy, ix in np.ndindex(grid.shape):
+        
         new_status = check_cell(grid, [iy, ix])
-
         new_grid[iy, ix] = new_status
 
-    grid = new_grid
-    print("td1" ,datetime.now() - t)
-    t = datetime.now()
-    print_ascii(grid)
-    print("td2" ,datetime.now()- t)
-
     
+    grid = new_grid
+
+    # Save graph
+
+    graph = print_ascii(new_grid)
+    print(graph)
+
+    # with open("GameOut.txt", "w") as text_file:
+    #     text_file.write(graph)
+
+    matplotlib.image.imsave('GameOut.png', grid, cmap = matplotlib.cm.gray_r)
