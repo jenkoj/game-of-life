@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.image
+import time 
 
 n = 50
 grid = np.random.randint(2, size=[n,n])
@@ -103,11 +104,14 @@ while True:
     grid = new_grid
 
     # Save graph
-
+    
     graph = print_ascii(new_grid)
     print(graph)
 
     # with open("GameOut.txt", "w") as text_file:
     #     text_file.write(graph)
 
-    matplotlib.image.imsave('GameOut.png', grid, cmap = matplotlib.cm.gray_r)
+    # Resize image and save as png
+    bigger_img = grid.repeat(4, axis=0).repeat(4, axis=1)
+    matplotlib.image.imsave('GameOut.png', bigger_img, cmap = matplotlib.cm.gray_r)
+    time.sleep(0.5)
