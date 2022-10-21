@@ -1,4 +1,4 @@
-# Simple python implementation of Conway's game of life
+# Simple Python Implementation of Conway's Game of Life
 
 ## Quick start 
 
