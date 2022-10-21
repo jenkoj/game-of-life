@@ -18,5 +18,5 @@ Output is also saved to GameOut.png
 
 ## Result
 
-https://user-images.githubusercontent.com/52485152/197181143-ccfa2b2e-6fc0-4670-bef7-3ab14a015a4d.mp4
+https://user-images.githubusercontent.com/52485152/197181244-f2c16d7b-3f0a-4839-b037-df33925321ca.mp4
 
