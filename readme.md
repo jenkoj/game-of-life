@@ -6,7 +6,7 @@
    ```sh
    git clone https://github.com/jenkoj/game-of-life
    ```
-2. Install NPM packages
+2. Run the script
    ```sh
    python3 game.py
    ```
